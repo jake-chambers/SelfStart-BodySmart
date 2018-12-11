@@ -1,0 +1,13 @@
+<div class = 'container'>
+    <h2>Add a question to a form</h2>
+<form>
+ <div class="form-group">
+    <label for="question">Question: </label>
+    <input type="text" class="form-control" id="question" #question>
+  </div>
+<button (click) = "addQuestion(message, question.value)" class="btn btn-success">Submit</button>
+        <button class = "btn btn-danger" [routerLink]="['/forms']">Cancel</button>
+</form>
+</div>
+
+

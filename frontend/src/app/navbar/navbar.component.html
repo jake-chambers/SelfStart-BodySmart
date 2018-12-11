@@ -1,0 +1,34 @@
+<nav class="nav navbar-inverse">
+  <div class="container" style = "margin: 0px;">
+    <div class="navbar-header">
+      <a [routerLink]="['/']"><img src="../assets/images/SelfStartLogo.png" width="150" height="50" ></a>
+    </div>
+    <div id= navbar class="nav navbar-nav navbar-left">
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/about']">About Me</a></li>
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/register']">Register</a></li>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li *ngIf="!authService.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+          <a [routerLink]="['/login']">Login</a></li>
+      <li [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/bookappointment']">Book An Appointment</a></li>
+      <li *ngIf="authService.loggedIn() && authService.isAdmin()"  [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/questions']">Forms</a></li>
+      <li *ngIf="authService.loggedIn()  && authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/manageexercises']">Exercise Library</a></li>
+        <li *ngIf="authService.loggedIn()  && authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/manageusers']">Client List</a></li>
+        <li *ngIf="authService.loggedIn()  && !authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/assessment']">Assessments</a></li>
+        <li *ngIf="authService.loggedIn()  && !authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/makepayment']">Services</a></li>
+      <li *ngIf="authService.loggedIn()  && !authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/userexercises']">Exercises</a></li>
+      <li *ngIf="authService.loggedIn()  && !authService.isAdmin()" [routerLinkActive]="['active']" [routerLinkActiveOptions] = "{exact:true}">
+        <a [routerLink]="['/profile']">My Profile</a></li>
+        <li *ngIf="authService.loggedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
+    </ul>
+  </div>
+</nav>

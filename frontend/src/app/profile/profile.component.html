@@ -1,0 +1,111 @@
+<div class = 'container'>
+<div class="row">
+  <div class="col-xs-6 col-md-4">
+    <form>
+          <h2>{{user.name}}'s Profile</h2>
+          <div *ngIf="authService.isAdmin()" style = 'display: inline; color: #5bc0de'>(Admin)</div>
+          <hr>
+          <b>Name: </b> {{user.name}}
+          <hr>
+          
+          <b>Date of Birth: </b>  {{user.DOB}} 
+          <hr>
+          
+          <b>Health Card Number: </b> {{user.healthCardNumber}} 
+          <hr>
+          
+          <b>Phone Number: </b> {{user.phone}} 
+          <hr>
+          
+          <b>Postal Code: </b> {{user.postalCode}} 
+          <hr>
+          
+          <b>Medical History: </b>{{user.medicalHistory}} 
+          <hr>
+          
+          <b>Martial Status </b>{{user.maritalStatus}} 
+          <hr>
+          
+          <b>Email: </b>{{user.email}}
+          <hr>
+          
+          <button (click) = "isShown = !isShown;" class = 'btn btn-info'>Edit Info</button>
+          <button class = 'btn btn-danger' (click) = "Showing = !Showing;">Change Password</button>
+          </form>
+  </div>
+  
+  
+  <div class="col-xs-6 col-md-4">
+<form [ngClass]="{'shown': isShown, 'hidden': !isShown}">
+        <h2>Edit {{user.name}} </h2>
+      
+        <div class="form-group">
+          <label for="name">Name: </label>
+          <input type="text" id="name" value ='{{user.name}}' #name>
+        </div>
+        
+        <div class="form-group">
+          <label for="dob">Date of Birth:  </label>
+            <input type="text" id="dob" value ='{{user.DOB}}' required #dob>
+        </div>
+        
+        <div class="form-group">
+          <label for="healthcardno">Health Card Number: </label>
+             <input type="text" id="healthcardno" value ='{{user.healthCardNumber}}' required #healthcardno>
+        </div>
+        
+        <div class="form-group">
+          <label for="phoneno">Phone Number: </label>
+           <input type="text" id="phoneno" value ='{{user.phone}}' required #phoneno>
+        </div>
+        
+        <div class="form-group">
+          <label for="postalcode">Postal Code:  </label>
+           <input type="text" id="postalcode" value ='{{user.postalCode}}' required #postalcode>
+        </div>
+        
+        <div class="form-group">
+          <label for="medicalhistory">Medical History: </label>
+           <input type="text" id="medicalhistory" value ='{{user.medicalHistory}}' required #medicalhistory>
+        </div>
+        
+        <div class="form-group">
+          <label for="maritalstatus">Marital Status: </label>
+           <input type="text" id="maritalstatus" value ='{{user.maritalStatus}}' required #maritalstatus>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:  </label>
+          
+           <input type="text" id="email" value ='{{user.email}}' required #email>
+        </div>
+        <input type="text" id="id" value ='{{user._id}}' #id [hidden]="true">
+        <button (click) = 'editUser(id.value, name.value, dob.value, healthcardno.value, phoneno.value, postalcode.value, medicalhistory.value, maritalstatus.value, email.value)' type = "submit" class = 'btn btn-success'>Submit</button>
+       </form>
+    
+  </div>
+  
+
+  <div class="col-xs-6 col-md-4">
+         <form [ngClass]="{'shown': Showing, 'hidden': !Showing}">
+           <h2>Change Password: </h2>
+        <div class="form-group">
+          <label for="oldPass">Old Password:  </label>
+            <input type="password" id="oldPass" required #oldPass>
+        </div>
+        <div class="form-group">
+          <label for="newPass">New Password:  </label>
+            <input type="password" id="newPass" required #newPass>
+        </div>
+        <div class="form-group">
+          <label for="verifynewPass">Verify New Password:  </label>
+            <input type="password" id="verifyNewPass" required #verifyNewPass>
+        </div>
+             <input type="password"  value={{user.username}} #username [hidden]="true">
+          <button (click) = 'changePassword(username.value)' class = 'btn btn-success'>Confirm</button>
+         </form>
+  </div>
+  
+  
+</div>
+</div>

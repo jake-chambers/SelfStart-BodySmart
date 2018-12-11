@@ -1,0 +1,24 @@
+<div class='container'>
+  <form>
+    <h2> Add a New Form: </h2>
+    <form>
+      <div class="form-group">
+        <label for="formName">Form Name:
+    <br>
+            <textarea name="Text1" cols="40" rows="1" id="formName" #formname required></textarea>
+        <!--<input type="text" id="formName" #formname required>-->
+    </label>
+      </div>
+
+      <div class="form-group">
+        <label for="formDescription">Form Description:
+    <br>
+        <textarea name="Text2" cols="40" rows="5" id="formdescription" #formdescription required></textarea>
+        <!--<input style="width:300px;" type="text" id="formdescription" #formdescription required>-->
+    </label>
+      </div>
+      <button type="submit" (click)="createForm(formname.value, formdescription.value)" class="btn btn-success">Create Form</button>
+
+    <button type="submit" class="btn btn-danger" [routerLink]="['/questions']">Cancel</button>
+    </form>
+    <!--<button style="margin-top:10px;" type="submit" class="btn btn-danger" [routerLink]="['/questions']">Cancel</button>-->

@@ -1,0 +1,82 @@
+<div class='container'>
+    <div class="floating-box-left">
+        <h2>Exercises:</h2>
+        <input class="input" [(ngModel)]="searchText" placeholder="Search Exercises"><br><br>
+
+        <li style='padding: 0px;' id="exercisesList" *ngFor="let e of exerciseArray | search: searchText">
+            <div style='display: inline-block; margin-top: 7px'>{{e.name}}</div>
+            <button id="selectexercise" type="button" class="btn btn-info" (click)="onSelectExercise(e._id)">Select Exercise</button>
+        </li>
+        <button id="add" type="button" class="btn btn-info" [ngStyle]="{'background-color': buttonColor}" [disabled]="addStatus" (click)="addToPlan()">Add to plan</button>
+        <button id="remove" type="button" class="btn btn-danger" [ngStyle]="{'background-color': buttonColor2}" [disabled]="removeStatus" (click)="removeExerciseFromPlan()">Remove from plan</button>
+
+
+        <div style = 'margin-top: 150px'>
+            
+            <h2>Existing Plans:</h2>
+            <li style='padding: 0px;' id="rehablist" *ngFor="let r of getRehabPlanArray">
+                <div style='display: inline-block; margin-top: 7px'>{{r.name}}</div>
+                <div id="rehabbtn" class="btn-group" role="group" aria-label="Basic example">
+                    <button type="button" class="btn btn-info" (click)="selectRehabPlan(r._id)">Select Plan</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteRehabPlan(r._id)">Delete</button>
+                </div>
+            </li>
+            <button style="margin-top:15px;" class="btn btn-primary" (click)="addRehabPlanPatient()">Add Exercise Plan to Patient</button>
+
+        </div>
+
+    </div>
+
+
+    <div class="floating-box-right">
+        
+        <h2>Exercise Plan</h2>
+        <input id="rehabname" class="input" [(ngModel)]="rehabPlanName" placeholder="Please add a name for the new Rehabilitation Plan" #rehabName>
+        <br>
+        <br>
+        <table *ngIf="showTable">
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Frequency</th>
+                <th>Action Steps</th>
+                <th>Location</th>
+            </tr>
+            <tr *ngFor="let e of exercisePlanArray" (click)="onSelectInPlan(e._id)">
+                <td>{{ e.name }}</td>
+                <td>{{ e.description }}</td>
+                <td>{{ e.frequency }}</td>
+                <td>{{ e.actionSteps }}</td>
+                <td>{{ e.location }}</td>
+            </tr>
+        </table>
+        <br>
+        <button type="button" class="btn btn-success" (click)="addRehabPlan(rehabName.value)">Create New Plan</button>
+
+
+        <div style='margin-top: 325px' [hidden] = 'showSelectedPlan'>
+            <h2>Selected Plan:</h2>
+            <br>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Frequency</th>
+                    <th>Action Steps</th>
+                    <th>Location</th>
+                </tr>
+                <tr *ngFor="let e of exercisePlanArray2" (click)="onSelectInPlan(e._id)">
+                    <td>{{ e.name }}</td>
+                    <td>{{ e.description }}</td>
+                    <td>{{ e.frequency }}</td>
+                    <td>{{ e.actionSteps }}</td>
+                    <td>{{ e.location }}</td>
+                </tr>
+            </table>
+        </div>
+
+
+
+    </div>
+
+</div>

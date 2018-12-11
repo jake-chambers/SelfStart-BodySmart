@@ -1,0 +1,86 @@
+<div class='container'>
+
+  <div class="floating-box-left">
+    <h1>{{pat.name}}</h1>
+    Username: {{pat.username}}<br> Email: {{pat.email}}<br> Postal Code: {{pat.postalCode}}<br> DOB: {{pat.DOB}}<br> Marital Status: {{pat.maritalStatus}}<br> Health Card Number: {{pat.healthCardNumber}}<br> Medical History: {{pat.medicalHistory}}<br><br>
+
+    <div>
+      <h4>Send Form to {{pat.name}}</h4>
+      <select [(ngModel)]="chosenForm" class="custom-select d-block w-100" id="form" value="Choose">
+    <option selected="selected" value="Choose...">Choose...</option>
+    <option *ngFor="let x of formsArray" value="{{x._id}}">{{x.name}}</option>
+  </select>
+      <button type="button" class="btn btn-success" (click)="sendForm(chosenForm)">Send Form</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <div>
+      <button class="btn btn-info" id="exercise" [routerLink]="['/createplan', pat._id]">Create Exercise Plan</button>
+      <button type="button" class="btn btn-info" [routerLink]="['/summary', pat._id]"> View Summary Report </button>
+    </div>
+
+  </div>
+
+  <div class="floating-box-right">
+    <br><br>
+    <button type="button" class="btn btn-default" (click)="isCollapsed1 = !isCollapsed1 ; isCollapsed2 = true ; isCollapsed3 = true">Exercises</button>
+    <button type="button" class="btn btn-default" (click)="isCollapsed2 = !isCollapsed2 ; isCollapsed1 = true ; isCollapsed3 = true">Assessment Tests</button>
+    <button type="button" class="btn btn-default" (click)="isCollapsed3 = !isCollapsed3 ; isCollapsed1 = true ; isCollapsed2 = true">Payment History</button>
+    <hr>
+
+    <div>
+
+    </div>
+
+    <!--Exercises-->
+    <div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="isCollapsed1" class="card card-block card-header">
+      <table *ngIf = '(exerciseArrays != null) && (exerciseArrays.length > 0)'>
+        <thead>
+          <tr>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Objectives</td>
+            <td>Sets</td>
+            <td>Reps</td>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let e of exerciseArrays" (click)="onSelect(e._id)">
+          <td>{{ e.name }}</td>
+          <td>{{ e.description }}</td>
+          <td>{{ e.objectives }}</td>
+          <td>{{ e.frequency }}</td>
+          <td>{{ e.duration }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--Assessment Tests-->
+    <div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="isCollapsed2" class="card card-block card-header">
+      <div style='margin-bottom: 5px' *ngFor="let a of assessmentsArray">
+        <button class='btn btn-info' (click)='getFormQuestions(a._id)'>{{a.name}}</button>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+
+      <div *ngFor="let a of questionsArray">
+        <b>Question:</b> {{a.questionText}}
+        <br>
+        <b>Answer:</b> {{a.answer}}
+      </div>
+    </div>
+
+    <!--Payment History-->
+    <div (collapsed)="collapsed($event)" (expanded)="expanded($event)" [collapse]="isCollapsed3" class="card card-block card-header">
+    <div *ngFor="let p of paymentsArray; let i = index;"> 
+      <b>Payment {{i+1}}:</b> $ {{p}} 
+    </div>  
+
+    </div>
+  </div>
+</div>

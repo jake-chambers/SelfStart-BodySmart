@@ -1,0 +1,38 @@
+<div class = 'container'>
+    <div class="parentdiv">
+        <div class = 'leftchild'>
+            <h1 style = "display:inline-block;padding-right: 15px;">Form Name: {{message3.name}}</h1>
+            <button class = "btn btn-info"  style = 'margin-bottom: 15px' [routerLink]="['/addquestion']" (click) = 'newMessage(message3._id)'>Add question to form</button><br>
+            <h6 style = "display:inline-block;padding-right: 15px;">Description: {{message3.description}}</h6><br>
+            
+            <br>
+            <br>
+            <div style = 'margin-bottom: 5px' *ngFor = 'let x of message3.questions; let i = "index"'>
+               <strong>Question {{i+1}}:</strong>  {{x.questionText}}
+                <button [style.margin-left.px] = "20" (click)="deleteQuestion(message3._id, x._id)" class = "btn btn-danger">Delete</button>
+            </div>
+            <br>
+            <br>
+            <button class = "btn btn-success" [routerLink]="['/questions']">Back</button>
+            <button class = "btn btn-info" (click)="showEditFunction()">Edit</button>
+        </div>
+        <div class = 'rightchild'>
+                <form [hidden] = "showEdit">
+                    <input type="text" id="ID" value ='{{message3._id}}' readonly #id hidden>
+                      <h1 style = "display:inline-block;padding-right: 15px;">Edit: {{message3.name}}</h1><br>
+                      <div class="form-group">
+                        <label for="name">Name: 
+                            <input type="text" id="name" value ='{{message3.name}}' #name>
+                        </label>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="description">Description: 
+                             <input type="text" id="description" value ='{{message3.description}}' #description>
+                         </label>
+                      </div>
+                      <button type = "submit" (click) = "editForm(id.value, name.value, description.value)"  class = 'btn btn-success'>Save</button>
+                      <button style="margin-left:10px;" type="submit" class="btn btn-danger" (click) = "showEditFunction()">Cancel</button>
+                </form>
+        </div>
+    </div>

@@ -1,0 +1,14 @@
+/* Pattern styles */
+.parentdiv {
+  display: flex;
+}
+
+.leftchild {
+  flex: 1;
+  padding: 1rem;
+}
+
+.rightchild {
+  flex: 1;
+  padding: 1rem;
+}

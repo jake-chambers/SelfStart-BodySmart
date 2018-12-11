@@ -1,0 +1,30 @@
+
+#edit {
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#view {
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.editviewbtn {
+    display: inline-block;
+}
+
+.floating-box-left {
+    float: left;
+    width: 45%;
+}
+
+.floating-box-right {
+    float: left;
+    margin-left: 5%;
+}
+.list-group-item{
+    height:60px;
+    line-height:60px;
+}

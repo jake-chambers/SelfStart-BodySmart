@@ -1,0 +1,18 @@
+<div class = 'container'>
+
+<div>
+    <h1 style = 'display: inline-block; padding-right: 15px;' >Forms</h1>
+    <button type = "button" style = 'margin-bottom: 15px' class = "btn btn-info" [routerLink]="['/createquestion']">Add New Form</button>
+</div>
+<input [(ngModel)]="searchText" placeholder="Search Forms..." style = "margin-left: 5px">
+<br><br>
+<div *ngFor = 'let x of questionArray | search : searchText'>
+    <button [style.width.px] = "300" [style.margin.px] = '5' [routerLink]="['/forms']" (click) = 'newMessage3(x)' type = "button" class = "btn btn-default">
+
+            {{x.name}}
+    </button>
+    <button [style.margin-left.px] = "10"  (click) = 'deleteForm(x._id)' type = "button" class = "btn btn-danger">Delete</button>
+    
+</div>
+
+</div>

@@ -1,0 +1,96 @@
+<div class = 'container'><head>
+  <link rel="stylesheet" href="/exerciseprofile.component.css">
+</head>
+
+<div class = 'parentdiv'>
+  
+  <div class = 'leftchild'>
+    <h1>{{message2.name}}</h1>
+    <!--ID: {{message2._id}}<br>-->
+    Description: {{message2.description}} <br>
+    Author: {{message2.authorName}}<br>
+    Objectives: {{message2.objectives}}<br>
+    Action Steps: {{message2.actionSteps}}<br>
+    Location: {{message2.location}}<br>
+    Frequency:{{message2.frequency}}<br>
+    Duration: {{message2.duration}}<br>
+    Multimedia: {{message2.multimediaURL}}<br>
+    <iframe [src]="url" allowfullscreen></iframe>
+    <br><br>
+    
+      <div>
+      <button (click) = "isShown = !isShown" class = "btn btn-info">Edit Exercise</button>
+      <button class = "btn btn-success" [routerLink]="['/manageexercises']">Back</button>
+      </div>
+
+  </div>
+
+
+
+  <div class = 'rightchild'>
+    <form [ngClass]="{'shown': isShown, 'hidden': !isShown}">
+    <h2>Edit {{message2.name}} </h2>
+    
+      <input type="text" id="ID" value ='{{message2._id}}' readonly #id hidden>
+      
+      <div class="form-group">
+        <label for="name">Name: 
+            <input type="text" id="name" value ='{{message2.name}}' required #name>
+        </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Description: 
+             <input type="text" id="description" value ='{{message2.description}}' required #description>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="author">Author: 
+             <input type="text" id="authorName" value ='{{message2.authorName}}' required #author>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="objectives">Objectives: 
+             <input type="text" id="objectives" value ='{{message2.objectives}}' required #objectives>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="actionSteps">Action Steps: 
+            <input type="text" id="actionSteps" value ='{{message2.actionSteps}}' required #actionsteps>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="location">Location: 
+           <input type="text" id="location" value ='{{message2.location}}' required #location>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="frequency">Frequency: 
+           <input type="text" id="frequency" value ='{{message2.frequency}}' required #frequency>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="duration">Duration: 
+            <input type="text" id="duration" value ='{{message2.duration}}' required #duration>
+         </label>
+      </div>
+      
+      <div class="form-group">
+        <label for="multimediaURL">MultiMedia URL: 
+           <input type="text" id="multimediaURL" value ='{{message2.multimediaURL}}' required #multimediaurl>
+         </label>
+      </div>
+      
+      <button type = "submit" (click) = "editExercise(id.value, name.value, description.value, author.value, objectives.value, actionsteps.value, location.value, frequency.value, duration.value, multimediaurl.value)"  class = 'btn btn-success'>Save</button>
+      <button style="margin-left:10px;" type="submit" class="btn btn-danger" (click) = "isShown = !isShown">Cancel</button>
+    </form>
+  </div>
+</div>
+</div>
+

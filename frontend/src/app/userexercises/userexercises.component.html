@@ -1,0 +1,14 @@
+<div class = 'container'>
+<h2>{{user.name}}'s Exercises</h2>
+<div *ngFor="let e of exercises; let i = index">
+    <h3>{{e.name}}<br></h3> 
+    Description: {{e.description}} <br> Author: {{e.authorName}}<br> Objectives: {{e.objectives}}<br> Action Steps: {{e.actionSteps}}<br> Location: {{e.location}}<br> Frequency: {{e.frequency}}<br> Duration: {{e.duration}}<br>
+    <div>
+        <h4>Rate how much this exercise helped you</h4>
+        <rating [(ngModel)]="starsCount[i]"></rating>
+        <button (click)="onExerciseSubmit(starsCount,e.name,user._id)" class = "btn btn-info">Confirm</button>
+    </div>
+</div>
+<br>
+
+</div>

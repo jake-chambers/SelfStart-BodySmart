@@ -1,0 +1,87 @@
+li {
+    padding-left: 20px;
+    list-style-type: none;
+}
+
+.floating-box-left {
+    float: left;
+    width: 40%;
+    height: 50%;
+}
+
+.floating-box-right {
+    float: left;
+    width: 40%;
+    height: 50%;
+    margin-left: 140px;
+}
+
+.floating-box-middle {
+    float: left;
+    width: 10%;
+    margin-left: 1%;
+}
+
+.input {
+    margin-left: 3px;
+}
+
+.emptytable, td {
+    border: 1px solid;
+    width: 100px;
+    padding: 10px;
+}
+
+.rehabplans {
+    float: left;
+    width: 50%;
+}
+
+#rehabname {
+    width: 100%;
+}
+
+.floating-box-lower {
+    height: auto;
+    width: 35%;
+/*//clear: left;*/
+}
+
+#rehablist {
+    overflow: auto;
+    margin-bottom: 5px
+}
+
+#rehablist:hover
+{
+    background-color: #e5e5e5;
+}
+
+
+#rehabbtn {
+    vertical-align: middle;
+    float: right;
+}
+
+#selectexercise {
+    float:right;
+}
+
+#buttons {
+    margin-top: 15%;
+}
+
+#exercisesList {
+    overflow: auto;
+    margin-bottom: 5px
+}
+
+#exercisesList:hover
+{
+    background-color: #e5e5e5;
+}
+
+#selectexercise {
+    vertical-align: middle;
+    float:right;
+}

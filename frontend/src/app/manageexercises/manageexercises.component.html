@@ -1,0 +1,18 @@
+<div class = 'container'>
+<div>
+<h1 style ='display: inline-block; padding-right: 15px'>Exercises</h1>
+<button style = 'margin-bottom: 15px' type = "button" class = "btn btn-info"  [routerLink]="['/createexercise']">Add New exercise</button>
+<div>
+<input [(ngModel)]="searchText" placeholder="Search Exercises..." style = "margin-left: 5px">
+<br><br>
+<div *ngFor = "let x of exerciseArray | search : searchText">
+    <!--<li style='padding-left:20px;width:50%;'>-->
+        <button [style.width.px] = '300' [style.margin.px] = '5'class = "btn btn-default" (click)="newMessage(x)" [routerLink]="['/exerciseprofile']">{{x.name}}</button>
+        <button [style.margin-left.px] = "10"  (click) = 'deleteExercise(x._id)' type = "button" class = "btn btn-danger">Delete</button>
+        <br>
+    <!--</li>-->
+</div>
+</div>
+
+
+

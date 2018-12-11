@@ -1,0 +1,27 @@
+<h1> Rehabilitation Plans </h1>
+
+<!--<h2> Standard Rehabilitation Plans </h2>-->
+
+<!--<h2> Custom Rehabilitation Plans </h2>-->
+
+<button class="button" type="button" [routerLink]="['/createplan']">Create a new rehab plan</button>
+
+<h3> Existing Plans </h3>
+<div *ngFor = 'let p of plansArray'>
+    <li style='padding-left:20px;'>
+        Name: {{p.name}}
+        <br>
+        Description: {{p.description}}
+        <br>
+        Author: {{p.authorName}}
+        <br>
+        Goal: {{p.goal}}
+        <br>
+        <!--Timeframe To Complete: {{p.timeFrameToComplete}}-->
+        <!--<br>-->
+        <button (click)="deletePlan(p._id)" class = "btn-danger">Delete</button>
+        <br>
+    </li>
+</div>
+
+

@@ -1,0 +1,24 @@
+<div class='container'>
+    <div class='row'>
+        <div class="col-xs-6 col-md-4">
+            <h2>Assessments</h2>
+            <div *ngFor = 'let x of formNameArray'>
+                <button (click)="getQuestions(x._id)" style="margin-bottom:5px;" class="btn btn-default">{{x.name}}</button>
+            </div>
+            <div *ngIf="formNameArray.length == 0">
+                <h1>No assessments to be done!</h1>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-4">
+            <form [ngClass]="{'shown': isShown, 'hidden': !isShown}">
+                <h2>Assessment Questions</h2>
+                <div *ngFor = 'let x of questionsArray; let i = index'>
+                    {{x.questionText}}<br>
+                    <input type="text" class="form-control" [(ngModel)]="answer[i]" name="answer" placeholder="type answer here" required>
+                </div>
+                <br>
+                <input type="submit" value="Submit" (click)='submitAnswers()' class="btn btn-success">
+            </form>
+        </div>
+    </div>
+</div>

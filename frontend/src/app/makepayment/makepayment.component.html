@@ -1,0 +1,108 @@
+<div class = 'container'>
+
+<h1 style="text-align: left; text-decoration: underline;">Services</h1>
+        <br>
+        <h2 style="text-decoration: underline;">Initial Consultation And Therapy </h2>
+        <h4>90 minutes: $150.00</h4>
+        
+        <p style="font-size: 20px;">Your initial consultation will be approximately 90 minutes. The first
+            30-45 minutes will be discussion of your symptoms, a brief movement assessment and your stated goals for therapy. The remainder of the appointment 30-45 minutes, will take you through your personalized sequence of exercises.
+            Following the appointment, you will have delivered to your account a complete exercise sequence with instructions.</p>
+        <div class = 'container'>
+          
+        <div class = 'row'>
+          
+          <div class="col-xs-6 col-md-4">
+          
+        <h3 style=""><strong>Additional Therapy Packages </strong></h3> 
+        
+        <p style="font-size: 20px;">It is anticipated that you will require more than one therapy session.
+        . After your first session, you will have a better understanding of the treatment package that best suits you.
+        </p>
+        
+        <ol>
+        <li><strong>1 Month Package:</strong> <br> 3 weekly therapy sessions within the 1st month <br> <strong>$250.00</strong></li> <br>
+        <li><strong>3 Month Package:</strong> <br> 3 weekly therapy sessions within the 1st month <br> 2 therapy sessions within the 2nd month <br> 2 further therapy sessions within the 3rd month <br> A total of 7 further treatments post inital consultation. <br> You will have 3 months of individual tailored movement programs. <br><strong>$500.00 </strong>   </li> <br> 
+        <li><strong>5 Month Package:</strong> <br> 3 weekly therapy sessions within the 1st month <br>
+            3 therapy sessions within the 2nd month <br>
+            6 further therapy sessions over the next 3 months <br> A total of 12 sessions post initial evaluation: <br> <strong>$850.00 </strong> </li>
+        </ol>
+        </div>
+        
+      
+        
+        <div class="row custom-row">
+  <div class= "col-xs-6 col-md-4" style="text-align: center; padding-left: 150px;">
+    <br>
+    <br>
+    <br>
+    <br>
+    <form [formGroup]="formdata" (ngSubmit) = "paymentBtnClicked(formdata.value)">
+        <fieldset>
+          <legend style="text-align: center;">Payment</legend>
+         
+            <!--- Email Block --->
+            <div class="form-group">
+              <label for="inputAmount">Note</label>
+              <input type="text"
+                id="note"
+                class="fortextbox"
+                placeholder="Note"
+                formControlName="note">
+            </div>
+             
+            <!--- Select gender Block --->
+            <div class="form-group">
+              <label for="select">Exercise Package</label>
+                <select id="amount" name="amount" formControlName="amount">
+                  <option value="250">1 Month Package - $250</option>
+                  <option value="500" selected>3 Month Package - $500</option>
+                  <option value="850">5 Month Package - $850</option>
+                  <option value="125">Individual Followup Consultations: $125</option>
+                </select>
+            </div>
+             
+            
+            
+           <!--- Buttons Block --->
+            <div class="form-group" style="text-align: center;">
+                <input type="submit" *ngIf="this.isButtonVisible" class="forsubmit" value="Pay Now">
+            </div>
+             
+             <div id="terms" *ngIf="this.termsVisible">
+               <strong>Terms and conditions</strong>
+             <br><br>
+               <p style="text-align: justify;">Last updated: April 9, 2018
+Please read these Terms and Conditions carefully before using
+the SelfStartBodySmart website  operated by Marcotte Physiotherapist Clinic.
+Your access to and use of the Service is conditioned on your acceptance of and compliance with
+these Terms. These Terms apply to all visitors, users and others who access or use the Service.
+By accessing or using the Service you agree to be bound by these Terms. If you disagree
+with any part of the terms then you may not access the Service.
+Purchases
+If you wish to purchase any product or service made available through the Service,
+you may be asked to supply certain information relevant to your Purchase including, without
+limitation, your full name, address, credit/debit card information.
+             </p>
+             
+             
+             
+             <div class="form-group checkbox">
+              <label>
+              <input type="checkbox" (click)="termsAndAgreementsChecked()"> <strong>Confirm that you've read the Terms and 
+              Conditions
+              </strong>
+              </label>
+            </div>
+          </div>  
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+       
+
+
+

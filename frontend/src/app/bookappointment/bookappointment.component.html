@@ -1,0 +1,272 @@
+<div class = 'container'>
+    <h2> Book an Appointment </h2>
+<form>
+    <div class="form-group">
+      <label for="date">Date of Appointment:</label>
+      <angular2-date-picker [(ngModel)]="date" [settings]="settings" [ngModelOptions]="{standalone: true}"></angular2-date-picker>
+    </div>
+    <br>
+  
+     <h2> Tell Me About Your Injury </h2>
+  <div class="form-group">
+    <label for="location">Where is the problem or symptom? </label>
+    <select #location>
+      <option value="neck">Neck</option>
+      <option value="back">Back</option>
+      <option value="shoulder">Shoulder</option>
+      <option value="elbow">Elbow</option>
+      <option value="wrist &/hand">Wrist and/or Hand</option>
+      <option value="hip">Hip</option>
+      <option value="knee">Knee</option>
+      <option value="ankle">Ankle</option>
+      <option value="foot">Foot</option>
+      <option value="other">Other</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="describePain">How would you describe your pain or symptom?</label>
+    <select #describePain>
+      <option value="aching">Aching</option>
+      <option value="throbbing">Throbbing</option>
+      <option value="burning">Burning</option>
+      <option value="weak">Weak</option>
+      <option value="tight">Tight</option>
+      <option value="tense">Tense</option>
+    </select>  
+    </div>
+    
+    <div class="form-group">
+    <label for="cause">How did the pain or symptom begin?</label>
+    <select #cause>
+      <option value="sudden">Sudden onset related to trauma</option>
+      <option value="gradual">Gradual onset - it just started one day</option>
+    </select> 
+    </div>
+    
+    <div class="form-group">
+    <label for="dateOfInjury">What was the date of your injury?</label>
+    <input type="text" name="dateOfInjury" placeholder='answer here' #dateOfInjury/>
+    </div>
+    
+    <div class="form-group">
+    <label for="description">Please describe your injury: </label>
+    <input type="text" name="description" placeholder='answer here' #description/>
+    </div>
+    
+    <div class="form-group">
+    <label for="ratingNow">Rate your pain right now out of 10: </label>
+    <select #ratingNow>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="ratingSevenDays">Please rate your pain over the past 7 days: </label>
+    <select #ratingSevenDays>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="aggrevation">What aggravates your pain?</label>
+    <select #aggrevation>
+      <option value="walking">Walking</option>
+      <option value="sitting">Sitting</option>
+      <option value="standing">Standing</option>
+      <option value="sleeping">Sleeping</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="easePain">What can you do that helps ease your pain or make you feel better - even if only temporarily?</label>
+    <select #easePain>
+      <option value="walking">Walking</option>
+      <option value="sitting">Sitting</option>
+      <option value="standing">Standing</option>
+      <option value="lying down">Lying down</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="morningPain">How is you pain in the morning?</label>
+    <select #morningPain>
+      <option value="worse">Worse</option>
+      <option value="better">Better</option>
+      <option value="no change">No change</option>
+      <option value="stiff">Stiff</option>
+      <option value="the morning is my best time">The morning is my best time</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="eveningPain">How is your pain in the evening?</label>
+    <select #eveningPain>
+      <option value="worse">Worse</option>
+      <option value="better">Better</option>
+      <option value="no change">No change</option>
+      <option value="stiff">Stiff</option>
+      <option value="the evening is my best time">The evening is my best time</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="otherTreatment">Have you sought treatment for this condition with other professionals?</label>
+    <select #otherTreatment>
+      <option value="no">no</option>
+      <option value="physiotherapist">Physiotherapist</option>
+      <option value="massage therapist">Massage therapist</option>
+      <option value="chiropractor">Chiropractor</option>
+      <option value="osteopath">Osteopath</option>
+      <option value="other">Other</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="otherPains">Do you have more than one symptom or any other pains in your body?</label>
+      <input type="text" name="otherPains" placeholder='answer here' #otherPains/>
+    </div>
+    
+    <div class="form-group">
+    <label for="otherConditions">Do you have other medical conditions?</label>
+        <input type="text" name="otherConditions" placeholder='answer here' #otherConditions/>
+    </div>
+    
+    <div class="form-group">
+    <label for="explain">Please explain: </label>
+      <input type="text" name="explain" placeholder='answer here' #explain/>
+    </div>
+    
+    <div class="form-group">
+    <label for="symptoms">Are you experiencing any of the following symptoms?</label>
+    <select #symptoms>
+      <option value="dizziness">Dizziness</option>
+      <option value="night sweats">Night sweats</option>
+      <option value="excessive weight loss">Excessive weight loss</option>
+      <option value="general malaise">General malaise</option>
+      <option value="depression">Depression</option>
+      <option value="anxiety">Anxiety</option>
+      <option value="changes in bowel or bladder habits">Changes in bowel or bladder habits</option>
+      <option value="breathing difficulties">Breathing difficulties</option>
+    </select>
+    </div>  
+    
+    <div class="form-group">
+    <label for="history">Do you have any other pertinent medical, traumas or surgical history?</label>
+    <select #history>
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+    </div>
+    
+    <div class="form-group">
+    <label for="describeHistory">Please describe: </label>
+        <input type="text" name="describeHistory" placeholder='answer here' #describeHistory/>
+    </div>
+    
+    <div class="form-group">
+    <label for="occupation">What is your occupation?</label>
+      <input type="text" name="occupation" placeholder='answer here' #occupation/>
+    </div>
+    
+    <div class="form-group">
+    <label for="activities">What are your favourite recreational activites or habbies?</label>
+      <input type="text" name="activities" placeholder='answer here' #activities/>
+    </div>
+    
+    <div class="form-group">
+    <label for="goals">What are your goals for treatment?</label>
+    <select #goals>
+      <option value="pain relief">Pain relief</option>
+      <option value="ncrease joint range of motion">Increase joint range of motion</option>
+      <option value="improved strength">Improved strength</option>
+      <option value="sleep better">Sleep better</option>
+      <option value="return to a specific activity">Return to a specific activity</option>
+    </select>
+    </div>
+  
+  <!--<div class="inline fields">-->
+  <!--    <div class="field">-->
+  <!--  <label for="image">Upload an image:</label> -->
+    <!--<input type="file" name="images" (change) = 'onFileSelected($event)' multiple/>-->
+  <!--  <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />-->
+  <!--  <button type="button" class="floated" class="btn btn-success " (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">-->
+  <!--    Upload</button>-->
+  <!--  </div>-->
+  <!--   <div class="field">-->
+    
+  <!--  </div>-->
+  <!--</div>-->
+  
+ <div class="wrapper">
+ <div style="overflow: hidden; padding-right: .5em;">
+    <label for="image">Upload an image:</label>
+     <input type="file" name="photo" ng2FileSelect [uploader]="uploader" style="display:inline-block;"/>
+     <!--<button type="button" class="btn btn-success " (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length" style="display:inline-block;">-->
+     <!-- Upload</button>-->
+   </div>
+
+</div>
+  
+<!--  <div class="ui container">-->
+<!--  <div class="ui centered grid">-->
+<!--    <div class="twelve wide column">-->
+<!--        <label for="image">Upload an image:</label> -->
+        <!--<input type="file" name="images" (change) = 'onFileSelected($event)' multiple/>-->
+<!--        <input type="file" name="photo" ng2FileSelect [uploader]="uploader" />-->
+<!--        <div class="moveleft" tabindex="0">-->
+<!--         <button type="button" class="floated" class="btn btn-success " (click)="uploader.uploadAll()" [disabled]="!uploader.getNotUploadedItems().length">-->
+<!--      Upload</button>-->
+<!--      </div>-->
+      <!--</div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+  
+  
+  
+  <br>
+  <button (click) = "bookAppointment(
+  date,
+  location.value,
+  describePain.value,
+  cause.value,
+  dateOfInjury.value,
+  description.value,
+  ratingNow.value,
+  ratingSevenDays.value,
+  aggrevation.value,
+  easePain.value,
+  morningPain.value,
+  eveningPain.value,
+  otherTreatment.value,
+  otherPains.value,
+  otherConditions.value,
+  explain.value,
+  symptoms.value,
+  history.value,
+  describeHistory.value,
+  occupation.value,
+  activities.value,
+  goals.value,
+  image)" class="btn btn-info">Book Appointment</button>
+</form>
+ </div>

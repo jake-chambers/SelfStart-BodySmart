@@ -1,0 +1,80 @@
+<div class = 'container'>
+    <h1>Manage Users</h1>
+<a routerLink="../register">
+        <span class="btn btn-default ">Create New Patient Profile</span>
+</a>
+<h3>Filter Patients</h3>
+<input [(ngModel)]="searchText" placeholder="Search"> <br> <br>
+<div class="btn-group btn-group-sm">
+    <button class="btn btn-default" id="A" (click)="byLetter('A')">A</button>
+    <button class="btn btn-default" id="B" (click)="byLetter('B')">B</button>
+    <button class="btn btn-default" id="C" (click)="byLetter('C')">C</button>
+    <button class="btn btn-default" id="D" (click)="byLetter('D')">D</button>
+    <button class="btn btn-default" id="E" (click)="byLetter('E')">E</button>
+    <button class="btn btn-default" id="F" (click)="byLetter('F')">F</button>
+    <button class="btn btn-default" id="G" (click)="byLetter('G')">G</button>
+    <button class="btn btn-default" id="H" (click)="byLetter('H')">H</button>
+    <button class="btn btn-default" id="I" (click)="byLetter('I')">I</button>
+    <button class="btn btn-default" id="J" (click)="byLetter('J')">J</button>
+    <button class="btn btn-default" id="K" (click)="byLetter('K')">K</button>
+    <button class="btn btn-default" id="L" (click)="byLetter('L')">L</button>
+    <button class="btn btn-default" id="M" (click)="byLetter('M')">M</button>
+    <button class="btn btn-default" id="N" (click)="byLetter('N')">N</button>
+    <button class="btn btn-default" id="O" (click)="byLetter('O')">O</button>
+    <button class="btn btn-default" id="P" (click)="byLetter('P')">P</button>
+    <button class="btn btn-default" id="Q" (click)="byLetter('Q')">Q</button>
+    <button class="btn btn-default" id="R" (click)="byLetter('R')">R</button>
+    <button class="btn btn-default" id="S" (click)="byLetter('S')">S</button>
+    <button class="btn btn-default" id="T" (click)="byLetter('T')">T</button>
+    <button class="btn btn-default" id="U" (click)="byLetter('U')">U</button>
+    <button class="btn btn-default" id="V" (click)="byLetter('V')">V</button>
+    <button class="btn btn-default" id="W" (click)="byLetter('W')">W</button>
+    <button class="btn btn-default" id="X" (click)="byLetter('X')">X</button>
+    <button class="btn btn-default" id="Y" (click)="byLetter('Y')">Y</button>
+    <button class="btn btn-default" id="Z" (click)="byLetter('Z')">Z</button>
+
+    <button class="btn btn-primary" (click)="byLetter('')">RESET</button>
+</div>
+
+
+    <div class="floating-box-left">
+        <div class="list-group" id="list-tab">
+            <h2>Patients:</h2>
+            <li  class="list-group-item" *ngFor="let p of patientArray | filter: letter | search: searchText">
+                <div class="editviewbtn">
+                    <div style = 'display: inline-block; width: 300px;'>{{p.name}}<br></div>
+                    <button class="btn btn-info" id="edit" (click)="onSelect(p._id)">Edit</button>
+                    <button class="btn btn-default" id="view" [routerLink]="['/viewpatient', p._id]">View</button>
+                </div>
+            </li>
+        </div>
+    </div>
+
+
+    <div class="floating-box-right">
+        <div class="tab-content" id="nav-tabContent">
+            <div *ngIf="patient != NULL">
+                <h2>Selected Patient:</h2>
+                <label>Name:</label>
+                <input [(ngModel)]="patient.name" placeholder="name" /><br>
+                <label>Username:</label>
+                <input [(ngModel)]="patient.username" placeholder="username"/><br>
+                <label>Email:</label>
+                <input [(ngModel)]="patient.email" placeholder="email"/><br>
+                <label>Postal Code:</label>
+                <input [(ngModel)]="patient.postalCode" placeholder="postalCode"/> <br>
+                <label>Date of Birth:</label>
+                <input [(ngModel)]="patient.DOB" placeholder="DOB"/> <br>
+                <label>Marital Status:</label>
+                <input [(ngModel)]="patient.maritalStatus" placeholder="maritalStatus"/> <br>
+                <label>Health Card Number:</label>
+                <input [(ngModel)]="patient.healthCardNumber" placeholder="healthCardNumber"/> <br>
+                <label>Medical History:</label>
+                <input [(ngModel)]="patient.medicalHistory" placeholder="medicalHistory"/> <br>
+                <label>Inactive: </label>
+                <input type="checkbox" id="enabled" value="Inactive" /><br>
+                <button type="button" class="btn btn-default" (click)="save(patient._id, patient.name, patient.username, patient.email, patient.postalCode, patient.DOB, patient.maritalStatus, patient.medicalHistory)">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
